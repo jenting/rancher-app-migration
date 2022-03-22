@@ -1,0 +1,1277 @@
+apiVersion: v1
+items:
+- apiVersion: apiextensions.k8s.io/v1
+  kind: CustomResourceDefinition
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: longhorn
+      meta.helm.sh/release-namespace: longhorn-system
+    creationTimestamp: "2022-03-22T08:03:08Z"
+    generation: 1
+    labels:
+      app.kubernetes.io/instance: longhorn
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: longhorn
+      app.kubernetes.io/version: v1.2.2
+      helm.sh/chart: longhorn-1.2.2
+      longhorn-manager: BackingImageDataSource
+    name: backingimagedatasources.longhorn.io
+    resourceVersion: "1929453"
+    uid: 23f02f08-de10-48c6-9bd4-8447c01b4e32
+  spec:
+    conversion:
+      strategy: None
+    group: longhorn.io
+    names:
+      kind: BackingImageDataSource
+      listKind: BackingImageDataSourceList
+      plural: backingimagedatasources
+      shortNames:
+      - lhbids
+      singular: backingimagedatasource
+    scope: Namespaced
+    versions:
+    - additionalPrinterColumns:
+      - description: The current state of the pod used to provisione the backing image
+          file from source
+        jsonPath: .status.currentState
+        name: State
+        type: string
+      - description: The data source type
+        jsonPath: .spec.sourceType
+        name: SourceType
+        type: string
+      - description: The node the backing image file will be prepared on
+        jsonPath: .spec.nodeID
+        name: Node
+        type: string
+      - description: The disk the backing image file will be prepared on
+        jsonPath: .spec.diskUUID
+        name: DiskUUID
+        type: string
+      - jsonPath: .metadata.creationTimestamp
+        name: Age
+        type: date
+      name: v1beta1
+      schema:
+        openAPIV3Schema:
+          properties:
+            spec:
+              x-kubernetes-preserve-unknown-fields: true
+            status:
+              x-kubernetes-preserve-unknown-fields: true
+          type: object
+      served: true
+      storage: true
+      subresources:
+        status: {}
+  status:
+    acceptedNames:
+      kind: BackingImageDataSource
+      listKind: BackingImageDataSourceList
+      plural: backingimagedatasources
+      shortNames:
+      - lhbids
+      singular: backingimagedatasource
+    conditions:
+    - lastTransitionTime: "2022-03-22T08:03:08Z"
+      message: no conflicts found
+      reason: NoConflicts
+      status: "True"
+      type: NamesAccepted
+    - lastTransitionTime: "2022-03-22T08:03:08Z"
+      message: the initial names have been accepted
+      reason: InitialNamesAccepted
+      status: "True"
+      type: Established
+    storedVersions:
+    - v1beta1
+- apiVersion: apiextensions.k8s.io/v1
+  kind: CustomResourceDefinition
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: longhorn
+      meta.helm.sh/release-namespace: longhorn-system
+    creationTimestamp: "2022-03-22T08:03:08Z"
+    generation: 1
+    labels:
+      app.kubernetes.io/instance: longhorn
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: longhorn
+      app.kubernetes.io/version: v1.2.2
+      helm.sh/chart: longhorn-1.2.2
+      longhorn-manager: BackingImageManager
+    name: backingimagemanagers.longhorn.io
+    resourceVersion: "1929449"
+    uid: 2b4c6b0c-e2ce-4874-a03a-9c0fbb2f7010
+  spec:
+    conversion:
+      strategy: None
+    group: longhorn.io
+    names:
+      kind: BackingImageManager
+      listKind: BackingImageManagerList
+      plural: backingimagemanagers
+      shortNames:
+      - lhbim
+      singular: backingimagemanager
+    scope: Namespaced
+    versions:
+    - additionalPrinterColumns:
+      - description: The current state of the manager
+        jsonPath: .status.currentState
+        name: State
+        type: string
+      - description: The image the manager pod will use
+        jsonPath: .spec.image
+        name: Image
+        type: string
+      - description: The node the manager is on
+        jsonPath: .spec.nodeID
+        name: Node
+        type: string
+      - description: The disk the manager is responsible for
+        jsonPath: .spec.diskUUID
+        name: DiskUUID
+        type: string
+      - description: The disk path the manager is using
+        jsonPath: .spec.diskPath
+        name: DiskPath
+        type: string
+      - jsonPath: .metadata.creationTimestamp
+        name: Age
+        type: date
+      name: v1beta1
+      schema:
+        openAPIV3Schema:
+          properties:
+            spec:
+              x-kubernetes-preserve-unknown-fields: true
+            status:
+              x-kubernetes-preserve-unknown-fields: true
+          type: object
+      served: true
+      storage: true
+      subresources:
+        status: {}
+  status:
+    acceptedNames:
+      kind: BackingImageManager
+      listKind: BackingImageManagerList
+      plural: backingimagemanagers
+      shortNames:
+      - lhbim
+      singular: backingimagemanager
+    conditions:
+    - lastTransitionTime: "2022-03-22T08:03:08Z"
+      message: no conflicts found
+      reason: NoConflicts
+      status: "True"
+      type: NamesAccepted
+    - lastTransitionTime: "2022-03-22T08:03:08Z"
+      message: the initial names have been accepted
+      reason: InitialNamesAccepted
+      status: "True"
+      type: Established
+    storedVersions:
+    - v1beta1
+- apiVersion: apiextensions.k8s.io/v1
+  kind: CustomResourceDefinition
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: longhorn
+      meta.helm.sh/release-namespace: longhorn-system
+    creationTimestamp: "2022-03-22T08:03:07Z"
+    generation: 1
+    labels:
+      app.kubernetes.io/instance: longhorn
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: longhorn
+      app.kubernetes.io/version: v1.2.2
+      helm.sh/chart: longhorn-1.2.2
+      longhorn-manager: BackingImage
+    name: backingimages.longhorn.io
+    resourceVersion: "1929426"
+    uid: 5121201a-86d3-460c-9f2e-716fde998e29
+  spec:
+    conversion:
+      strategy: None
+    group: longhorn.io
+    names:
+      kind: BackingImage
+      listKind: BackingImageList
+      plural: backingimages
+      shortNames:
+      - lhbi
+      singular: backingimage
+    scope: Namespaced
+    versions:
+    - additionalPrinterColumns:
+      - description: The backing image name
+        jsonPath: .spec.image
+        name: Image
+        type: string
+      - jsonPath: .metadata.creationTimestamp
+        name: Age
+        type: date
+      name: v1beta1
+      schema:
+        openAPIV3Schema:
+          properties:
+            spec:
+              x-kubernetes-preserve-unknown-fields: true
+            status:
+              x-kubernetes-preserve-unknown-fields: true
+          type: object
+      served: true
+      storage: true
+      subresources:
+        status: {}
+  status:
+    acceptedNames:
+      kind: BackingImage
+      listKind: BackingImageList
+      plural: backingimages
+      shortNames:
+      - lhbi
+      singular: backingimage
+    conditions:
+    - lastTransitionTime: "2022-03-22T08:03:07Z"
+      message: no conflicts found
+      reason: NoConflicts
+      status: "True"
+      type: NamesAccepted
+    - lastTransitionTime: "2022-03-22T08:03:07Z"
+      message: the initial names have been accepted
+      reason: InitialNamesAccepted
+      status: "True"
+      type: Established
+    storedVersions:
+    - v1beta1
+- apiVersion: apiextensions.k8s.io/v1
+  kind: CustomResourceDefinition
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: longhorn
+      meta.helm.sh/release-namespace: longhorn-system
+    creationTimestamp: "2022-03-22T08:03:08Z"
+    generation: 1
+    labels:
+      app.kubernetes.io/instance: longhorn
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: longhorn
+      app.kubernetes.io/version: v1.2.2
+      helm.sh/chart: longhorn-1.2.2
+      longhorn-manager: Backup
+    name: backups.longhorn.io
+    resourceVersion: "1929451"
+    uid: da3117b0-29c7-4577-80d3-eeccdcb6be5a
+  spec:
+    conversion:
+      strategy: None
+    group: longhorn.io
+    names:
+      kind: Backup
+      listKind: BackupList
+      plural: backups
+      shortNames:
+      - lhb
+      singular: backup
+    scope: Namespaced
+    versions:
+    - additionalPrinterColumns:
+      - description: The snapshot name
+        jsonPath: .status.snapshotName
+        name: SnapshotName
+        type: string
+      - description: The snapshot size
+        jsonPath: .status.size
+        name: SnapshotSize
+        type: string
+      - description: The snapshot creation time
+        jsonPath: .status.snapshotCreatedAt
+        name: SnapshotCreatedAt
+        type: string
+      - description: The backup state
+        jsonPath: .status.state
+        name: State
+        type: string
+      - description: The backup last synced time
+        jsonPath: .status.lastSyncedAt
+        name: LastSyncedAt
+        type: string
+      name: v1beta1
+      schema:
+        openAPIV3Schema:
+          properties:
+            spec:
+              x-kubernetes-preserve-unknown-fields: true
+            status:
+              x-kubernetes-preserve-unknown-fields: true
+          type: object
+      served: true
+      storage: true
+      subresources:
+        status: {}
+  status:
+    acceptedNames:
+      kind: Backup
+      listKind: BackupList
+      plural: backups
+      shortNames:
+      - lhb
+      singular: backup
+    conditions:
+    - lastTransitionTime: "2022-03-22T08:03:08Z"
+      message: no conflicts found
+      reason: NoConflicts
+      status: "True"
+      type: NamesAccepted
+    - lastTransitionTime: "2022-03-22T08:03:08Z"
+      message: the initial names have been accepted
+      reason: InitialNamesAccepted
+      status: "True"
+      type: Established
+    storedVersions:
+    - v1beta1
+- apiVersion: apiextensions.k8s.io/v1
+  kind: CustomResourceDefinition
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: longhorn
+      meta.helm.sh/release-namespace: longhorn-system
+    creationTimestamp: "2022-03-22T08:03:07Z"
+    generation: 1
+    labels:
+      app.kubernetes.io/instance: longhorn
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: longhorn
+      app.kubernetes.io/version: v1.2.2
+      helm.sh/chart: longhorn-1.2.2
+      longhorn-manager: BackupTarget
+    name: backuptargets.longhorn.io
+    resourceVersion: "1929439"
+    uid: d215e124-0f6d-444f-99c0-2b1b6868e6b6
+  spec:
+    conversion:
+      strategy: None
+    group: longhorn.io
+    names:
+      kind: BackupTarget
+      listKind: BackupTargetList
+      plural: backuptargets
+      shortNames:
+      - lhbt
+      singular: backuptarget
+    scope: Namespaced
+    versions:
+    - additionalPrinterColumns:
+      - description: The backup target URL
+        jsonPath: .spec.backupTargetURL
+        name: URL
+        type: string
+      - description: The backup target credential secret
+        jsonPath: .spec.credentialSecret
+        name: Credential
+        type: string
+      - description: The backup target poll interval
+        jsonPath: .spec.pollInterval
+        name: Interval
+        type: string
+      - description: Indicate whether the backup target is available or not
+        jsonPath: .status.available
+        name: Available
+        type: boolean
+      - description: The backup target last synced time
+        jsonPath: .status.lastSyncedAt
+        name: LastSyncedAt
+        type: string
+      name: v1beta1
+      schema:
+        openAPIV3Schema:
+          properties:
+            spec:
+              x-kubernetes-preserve-unknown-fields: true
+            status:
+              x-kubernetes-preserve-unknown-fields: true
+          type: object
+      served: true
+      storage: true
+      subresources:
+        status: {}
+  status:
+    acceptedNames:
+      kind: BackupTarget
+      listKind: BackupTargetList
+      plural: backuptargets
+      shortNames:
+      - lhbt
+      singular: backuptarget
+    conditions:
+    - lastTransitionTime: "2022-03-22T08:03:07Z"
+      message: no conflicts found
+      reason: NoConflicts
+      status: "True"
+      type: NamesAccepted
+    - lastTransitionTime: "2022-03-22T08:03:07Z"
+      message: the initial names have been accepted
+      reason: InitialNamesAccepted
+      status: "True"
+      type: Established
+    storedVersions:
+    - v1beta1
+- apiVersion: apiextensions.k8s.io/v1
+  kind: CustomResourceDefinition
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: longhorn
+      meta.helm.sh/release-namespace: longhorn-system
+    creationTimestamp: "2022-03-22T08:03:08Z"
+    generation: 1
+    labels:
+      app.kubernetes.io/instance: longhorn
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: longhorn
+      app.kubernetes.io/version: v1.2.2
+      helm.sh/chart: longhorn-1.2.2
+      longhorn-manager: BackupVolume
+    name: backupvolumes.longhorn.io
+    resourceVersion: "1929456"
+    uid: c9d1b04b-6c44-4b66-938a-777db5472ac9
+  spec:
+    conversion:
+      strategy: None
+    group: longhorn.io
+    names:
+      kind: BackupVolume
+      listKind: BackupVolumeList
+      plural: backupvolumes
+      shortNames:
+      - lhbv
+      singular: backupvolume
+    scope: Namespaced
+    versions:
+    - additionalPrinterColumns:
+      - description: The backup volume creation time
+        jsonPath: .status.createdAt
+        name: CreatedAt
+        type: string
+      - description: The backup volume last backup name
+        jsonPath: .status.lastBackupName
+        name: LastBackupName
+        type: string
+      - description: The backup volume last backup time
+        jsonPath: .status.lastBackupAt
+        name: LastBackupAt
+        type: string
+      - description: The backup volume last synced time
+        jsonPath: .status.lastSyncedAt
+        name: LastSyncedAt
+        type: string
+      name: v1beta1
+      schema:
+        openAPIV3Schema:
+          properties:
+            spec:
+              x-kubernetes-preserve-unknown-fields: true
+            status:
+              x-kubernetes-preserve-unknown-fields: true
+          type: object
+      served: true
+      storage: true
+      subresources:
+        status: {}
+  status:
+    acceptedNames:
+      kind: BackupVolume
+      listKind: BackupVolumeList
+      plural: backupvolumes
+      shortNames:
+      - lhbv
+      singular: backupvolume
+    conditions:
+    - lastTransitionTime: "2022-03-22T08:03:08Z"
+      message: no conflicts found
+      reason: NoConflicts
+      status: "True"
+      type: NamesAccepted
+    - lastTransitionTime: "2022-03-22T08:03:08Z"
+      message: the initial names have been accepted
+      reason: InitialNamesAccepted
+      status: "True"
+      type: Established
+    storedVersions:
+    - v1beta1
+- apiVersion: apiextensions.k8s.io/v1
+  kind: CustomResourceDefinition
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: longhorn
+      meta.helm.sh/release-namespace: longhorn-system
+    creationTimestamp: "2022-03-22T08:03:08Z"
+    generation: 1
+    labels:
+      app.kubernetes.io/instance: longhorn
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: longhorn
+      app.kubernetes.io/version: v1.2.2
+      helm.sh/chart: longhorn-1.2.2
+      longhorn-manager: EngineImage
+    name: engineimages.longhorn.io
+    resourceVersion: "1929461"
+    uid: cb8b5d21-6c03-4ce5-866d-3cb082098344
+  spec:
+    conversion:
+      strategy: None
+    group: longhorn.io
+    names:
+      kind: EngineImage
+      listKind: EngineImageList
+      plural: engineimages
+      shortNames:
+      - lhei
+      singular: engineimage
+    scope: Namespaced
+    versions:
+    - additionalPrinterColumns:
+      - description: State of the engine image
+        jsonPath: .status.state
+        name: State
+        type: string
+      - description: The Longhorn engine image
+        jsonPath: .spec.image
+        name: Image
+        type: string
+      - description: Number of volumes are using the engine image
+        jsonPath: .status.refCount
+        name: RefCount
+        type: integer
+      - description: The build date of the engine image
+        jsonPath: .status.buildDate
+        name: BuildDate
+        type: date
+      - jsonPath: .metadata.creationTimestamp
+        name: Age
+        type: date
+      name: v1beta1
+      schema:
+        openAPIV3Schema:
+          properties:
+            spec:
+              x-kubernetes-preserve-unknown-fields: true
+            status:
+              x-kubernetes-preserve-unknown-fields: true
+          type: object
+      served: true
+      storage: true
+      subresources:
+        status: {}
+  status:
+    acceptedNames:
+      kind: EngineImage
+      listKind: EngineImageList
+      plural: engineimages
+      shortNames:
+      - lhei
+      singular: engineimage
+    conditions:
+    - lastTransitionTime: "2022-03-22T08:03:08Z"
+      message: no conflicts found
+      reason: NoConflicts
+      status: "True"
+      type: NamesAccepted
+    - lastTransitionTime: "2022-03-22T08:03:08Z"
+      message: the initial names have been accepted
+      reason: InitialNamesAccepted
+      status: "True"
+      type: Established
+    storedVersions:
+    - v1beta1
+- apiVersion: apiextensions.k8s.io/v1
+  kind: CustomResourceDefinition
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: longhorn
+      meta.helm.sh/release-namespace: longhorn-system
+    creationTimestamp: "2022-03-22T08:03:08Z"
+    generation: 1
+    labels:
+      app.kubernetes.io/instance: longhorn
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: longhorn
+      app.kubernetes.io/version: v1.2.2
+      helm.sh/chart: longhorn-1.2.2
+      longhorn-manager: Engine
+    name: engines.longhorn.io
+    resourceVersion: "1929458"
+    uid: 1784b8de-b08b-41d9-a3b8-b3c35c170316
+  spec:
+    conversion:
+      strategy: None
+    group: longhorn.io
+    names:
+      kind: Engine
+      listKind: EngineList
+      plural: engines
+      shortNames:
+      - lhe
+      singular: engine
+    scope: Namespaced
+    versions:
+    - additionalPrinterColumns:
+      - description: The current state of the engine
+        jsonPath: .status.currentState
+        name: State
+        type: string
+      - description: The node that the engine is on
+        jsonPath: .spec.nodeID
+        name: Node
+        type: string
+      - description: The instance manager of the engine
+        jsonPath: .status.instanceManagerName
+        name: InstanceManager
+        type: string
+      - description: The current image of the engine
+        jsonPath: .status.currentImage
+        name: Image
+        type: string
+      - jsonPath: .metadata.creationTimestamp
+        name: Age
+        type: date
+      name: v1beta1
+      schema:
+        openAPIV3Schema:
+          properties:
+            spec:
+              x-kubernetes-preserve-unknown-fields: true
+            status:
+              x-kubernetes-preserve-unknown-fields: true
+          type: object
+      served: true
+      storage: true
+      subresources:
+        status: {}
+  status:
+    acceptedNames:
+      kind: Engine
+      listKind: EngineList
+      plural: engines
+      shortNames:
+      - lhe
+      singular: engine
+    conditions:
+    - lastTransitionTime: "2022-03-22T08:03:08Z"
+      message: no conflicts found
+      reason: NoConflicts
+      status: "True"
+      type: NamesAccepted
+    - lastTransitionTime: "2022-03-22T08:03:08Z"
+      message: the initial names have been accepted
+      reason: InitialNamesAccepted
+      status: "True"
+      type: Established
+    storedVersions:
+    - v1beta1
+- apiVersion: apiextensions.k8s.io/v1
+  kind: CustomResourceDefinition
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: longhorn
+      meta.helm.sh/release-namespace: longhorn-system
+    creationTimestamp: "2022-03-22T08:03:08Z"
+    generation: 1
+    labels:
+      app.kubernetes.io/instance: longhorn
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: longhorn
+      app.kubernetes.io/version: v1.2.2
+      helm.sh/chart: longhorn-1.2.2
+      longhorn-manager: InstanceManager
+    name: instancemanagers.longhorn.io
+    resourceVersion: "1929464"
+    uid: 9745c0ac-fd30-4d70-94d3-005b01828848
+  spec:
+    conversion:
+      strategy: None
+    group: longhorn.io
+    names:
+      kind: InstanceManager
+      listKind: InstanceManagerList
+      plural: instancemanagers
+      shortNames:
+      - lhim
+      singular: instancemanager
+    scope: Namespaced
+    versions:
+    - additionalPrinterColumns:
+      - description: The state of the instance manager
+        jsonPath: .status.currentState
+        name: State
+        type: string
+      - description: The type of the instance manager (engine or replica)
+        jsonPath: .spec.type
+        name: Type
+        type: string
+      - description: The node that the instance manager is running on
+        jsonPath: .spec.nodeID
+        name: Node
+        type: string
+      - jsonPath: .metadata.creationTimestamp
+        name: Age
+        type: date
+      name: v1beta1
+      schema:
+        openAPIV3Schema:
+          properties:
+            spec:
+              x-kubernetes-preserve-unknown-fields: true
+            status:
+              x-kubernetes-preserve-unknown-fields: true
+          type: object
+      served: true
+      storage: true
+      subresources:
+        status: {}
+  status:
+    acceptedNames:
+      kind: InstanceManager
+      listKind: InstanceManagerList
+      plural: instancemanagers
+      shortNames:
+      - lhim
+      singular: instancemanager
+    conditions:
+    - lastTransitionTime: "2022-03-22T08:03:08Z"
+      message: no conflicts found
+      reason: NoConflicts
+      status: "True"
+      type: NamesAccepted
+    - lastTransitionTime: "2022-03-22T08:03:08Z"
+      message: the initial names have been accepted
+      reason: InitialNamesAccepted
+      status: "True"
+      type: Established
+    storedVersions:
+    - v1beta1
+- apiVersion: apiextensions.k8s.io/v1
+  kind: CustomResourceDefinition
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: longhorn
+      meta.helm.sh/release-namespace: longhorn-system
+    creationTimestamp: "2022-03-22T08:03:07Z"
+    generation: 1
+    labels:
+      app.kubernetes.io/instance: longhorn
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: longhorn
+      app.kubernetes.io/version: v1.2.2
+      helm.sh/chart: longhorn-1.2.2
+      longhorn-manager: Node
+    name: nodes.longhorn.io
+    resourceVersion: "1929433"
+    uid: b864e003-b476-4381-aad9-35ede23d4272
+  spec:
+    conversion:
+      strategy: None
+    group: longhorn.io
+    names:
+      kind: Node
+      listKind: NodeList
+      plural: nodes
+      shortNames:
+      - lhn
+      singular: node
+    scope: Namespaced
+    versions:
+    - additionalPrinterColumns:
+      - description: Indicate whether the node is ready
+        jsonPath: .status.conditions['Ready']['status']
+        name: Ready
+        type: string
+      - description: Indicate whether the user disabled/enabled replica scheduling
+          for the node
+        jsonPath: .spec.allowScheduling
+        name: AllowScheduling
+        type: boolean
+      - description: Indicate whether Longhorn can schedule replicas on the node
+        jsonPath: .status.conditions['Schedulable']['status']
+        name: Schedulable
+        type: string
+      - jsonPath: .metadata.creationTimestamp
+        name: Age
+        type: date
+      name: v1beta1
+      schema:
+        openAPIV3Schema:
+          properties:
+            spec:
+              x-kubernetes-preserve-unknown-fields: true
+            status:
+              x-kubernetes-preserve-unknown-fields: true
+          type: object
+      served: true
+      storage: true
+      subresources:
+        status: {}
+  status:
+    acceptedNames:
+      kind: Node
+      listKind: NodeList
+      plural: nodes
+      shortNames:
+      - lhn
+      singular: node
+    conditions:
+    - lastTransitionTime: "2022-03-22T08:03:07Z"
+      message: no conflicts found
+      reason: NoConflicts
+      status: "True"
+      type: NamesAccepted
+    - lastTransitionTime: "2022-03-22T08:03:07Z"
+      message: the initial names have been accepted
+      reason: InitialNamesAccepted
+      status: "True"
+      type: Established
+    storedVersions:
+    - v1beta1
+- apiVersion: apiextensions.k8s.io/v1
+  kind: CustomResourceDefinition
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: longhorn
+      meta.helm.sh/release-namespace: longhorn-system
+    creationTimestamp: "2022-03-22T08:03:07Z"
+    generation: 1
+    labels:
+      app.kubernetes.io/instance: longhorn
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: longhorn
+      app.kubernetes.io/version: v1.2.2
+      helm.sh/chart: longhorn-1.2.2
+      longhorn-manager: RecurringJob
+    name: recurringjobs.longhorn.io
+    resourceVersion: "1929435"
+    uid: 3055e800-8c55-4b49-9a9e-0b39027199da
+  spec:
+    conversion:
+      strategy: None
+    group: longhorn.io
+    names:
+      kind: RecurringJob
+      listKind: RecurringJobList
+      plural: recurringjobs
+      shortNames:
+      - lhrj
+      singular: recurringjob
+    scope: Namespaced
+    versions:
+    - additionalPrinterColumns:
+      - description: Sets groupings to the jobs. When set to "default" group will
+          be added to the volume label when no other job label exist in volume.
+        jsonPath: .spec.groups
+        name: Groups
+        type: string
+      - description: Should be one of "backup" or "snapshot".
+        jsonPath: .spec.task
+        name: Task
+        type: string
+      - description: The cron expression represents recurring job scheduling.
+        jsonPath: .spec.cron
+        name: Cron
+        type: string
+      - description: The number of snapshots/backups to keep for the volume.
+        jsonPath: .spec.retain
+        name: Retain
+        type: integer
+      - description: The concurrent job to run by each cron job.
+        jsonPath: .spec.concurrency
+        name: Concurrency
+        type: integer
+      - jsonPath: .metadata.creationTimestamp
+        name: Age
+        type: date
+      - description: Specify the labels
+        jsonPath: .spec.labels
+        name: Labels
+        type: string
+      name: v1beta1
+      schema:
+        openAPIV3Schema:
+          properties:
+            metadata:
+              properties:
+                name:
+                  type: string
+              type: object
+            spec:
+              properties:
+                concurrency:
+                  type: integer
+                cron:
+                  type: string
+                groups:
+                  items:
+                    type: string
+                  type: array
+                labels:
+                  x-kubernetes-preserve-unknown-fields: true
+                retain:
+                  type: integer
+                task:
+                  pattern: ^snapshot|backup$
+                  type: string
+              type: object
+            status:
+              x-kubernetes-preserve-unknown-fields: true
+          type: object
+      served: true
+      storage: true
+      subresources:
+        status: {}
+  status:
+    acceptedNames:
+      kind: RecurringJob
+      listKind: RecurringJobList
+      plural: recurringjobs
+      shortNames:
+      - lhrj
+      singular: recurringjob
+    conditions:
+    - lastTransitionTime: "2022-03-22T08:03:07Z"
+      message: no conflicts found
+      reason: NoConflicts
+      status: "True"
+      type: NamesAccepted
+    - lastTransitionTime: "2022-03-22T08:03:07Z"
+      message: the initial names have been accepted
+      reason: InitialNamesAccepted
+      status: "True"
+      type: Established
+    storedVersions:
+    - v1beta1
+- apiVersion: apiextensions.k8s.io/v1
+  kind: CustomResourceDefinition
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: longhorn
+      meta.helm.sh/release-namespace: longhorn-system
+    creationTimestamp: "2022-03-22T08:03:07Z"
+    generation: 1
+    labels:
+      app.kubernetes.io/instance: longhorn
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: longhorn
+      app.kubernetes.io/version: v1.2.2
+      helm.sh/chart: longhorn-1.2.2
+      longhorn-manager: Replica
+    name: replicas.longhorn.io
+    resourceVersion: "1929429"
+    uid: c7fb3f5f-af17-4419-b107-688271e4f78b
+  spec:
+    conversion:
+      strategy: None
+    group: longhorn.io
+    names:
+      kind: Replica
+      listKind: ReplicaList
+      plural: replicas
+      shortNames:
+      - lhr
+      singular: replica
+    scope: Namespaced
+    versions:
+    - additionalPrinterColumns:
+      - description: The current state of the replica
+        jsonPath: .status.currentState
+        name: State
+        type: string
+      - description: The node that the replica is on
+        jsonPath: .spec.nodeID
+        name: Node
+        type: string
+      - description: The disk that the replica is on
+        jsonPath: .spec.diskID
+        name: Disk
+        type: string
+      - description: The instance manager of the replica
+        jsonPath: .status.instanceManagerName
+        name: InstanceManager
+        type: string
+      - description: The current image of the replica
+        jsonPath: .status.currentImage
+        name: Image
+        type: string
+      - jsonPath: .metadata.creationTimestamp
+        name: Age
+        type: date
+      name: v1beta1
+      schema:
+        openAPIV3Schema:
+          properties:
+            spec:
+              x-kubernetes-preserve-unknown-fields: true
+            status:
+              x-kubernetes-preserve-unknown-fields: true
+          type: object
+      served: true
+      storage: true
+      subresources:
+        status: {}
+  status:
+    acceptedNames:
+      kind: Replica
+      listKind: ReplicaList
+      plural: replicas
+      shortNames:
+      - lhr
+      singular: replica
+    conditions:
+    - lastTransitionTime: "2022-03-22T08:03:07Z"
+      message: no conflicts found
+      reason: NoConflicts
+      status: "True"
+      type: NamesAccepted
+    - lastTransitionTime: "2022-03-22T08:03:07Z"
+      message: the initial names have been accepted
+      reason: InitialNamesAccepted
+      status: "True"
+      type: Established
+    storedVersions:
+    - v1beta1
+- apiVersion: apiextensions.k8s.io/v1
+  kind: CustomResourceDefinition
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: longhorn
+      meta.helm.sh/release-namespace: longhorn-system
+    creationTimestamp: "2022-03-22T08:03:07Z"
+    generation: 1
+    labels:
+      app.kubernetes.io/instance: longhorn
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: longhorn
+      app.kubernetes.io/version: v1.2.2
+      helm.sh/chart: longhorn-1.2.2
+      longhorn-manager: Setting
+    name: settings.longhorn.io
+    resourceVersion: "1929425"
+    uid: a0316a71-03c1-4c30-8f82-f2cc8e3a05d0
+  spec:
+    conversion:
+      strategy: None
+    group: longhorn.io
+    names:
+      kind: Setting
+      listKind: SettingList
+      plural: settings
+      shortNames:
+      - lhs
+      singular: setting
+    scope: Namespaced
+    versions:
+    - additionalPrinterColumns:
+      - description: The value of the setting
+        jsonPath: .value
+        name: Value
+        type: string
+      - jsonPath: .metadata.creationTimestamp
+        name: Age
+        type: date
+      name: v1beta1
+      schema:
+        openAPIV3Schema:
+          x-kubernetes-preserve-unknown-fields: true
+      served: true
+      storage: true
+  status:
+    acceptedNames:
+      kind: Setting
+      listKind: SettingList
+      plural: settings
+      shortNames:
+      - lhs
+      singular: setting
+    conditions:
+    - lastTransitionTime: "2022-03-22T08:03:07Z"
+      message: no conflicts found
+      reason: NoConflicts
+      status: "True"
+      type: NamesAccepted
+    - lastTransitionTime: "2022-03-22T08:03:07Z"
+      message: the initial names have been accepted
+      reason: InitialNamesAccepted
+      status: "True"
+      type: Established
+    storedVersions:
+    - v1beta1
+- apiVersion: apiextensions.k8s.io/v1
+  kind: CustomResourceDefinition
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: longhorn
+      meta.helm.sh/release-namespace: longhorn-system
+    creationTimestamp: "2022-03-22T08:03:07Z"
+    generation: 1
+    labels:
+      app.kubernetes.io/instance: longhorn
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: longhorn
+      app.kubernetes.io/version: v1.2.2
+      helm.sh/chart: longhorn-1.2.2
+      longhorn-manager: ShareManager
+    name: sharemanagers.longhorn.io
+    resourceVersion: "1929438"
+    uid: e97b5c5b-087c-4484-af52-6cc5a0216844
+  spec:
+    conversion:
+      strategy: None
+    group: longhorn.io
+    names:
+      kind: ShareManager
+      listKind: ShareManagerList
+      plural: sharemanagers
+      shortNames:
+      - lhsm
+      singular: sharemanager
+    scope: Namespaced
+    versions:
+    - additionalPrinterColumns:
+      - description: The state of the share manager
+        jsonPath: .status.state
+        name: State
+        type: string
+      - description: The node that the share manager is owned by
+        jsonPath: .status.ownerID
+        name: Node
+        type: string
+      - jsonPath: .metadata.creationTimestamp
+        name: Age
+        type: date
+      name: v1beta1
+      schema:
+        openAPIV3Schema:
+          properties:
+            spec:
+              x-kubernetes-preserve-unknown-fields: true
+            status:
+              x-kubernetes-preserve-unknown-fields: true
+          type: object
+      served: true
+      storage: true
+      subresources:
+        status: {}
+  status:
+    acceptedNames:
+      kind: ShareManager
+      listKind: ShareManagerList
+      plural: sharemanagers
+      shortNames:
+      - lhsm
+      singular: sharemanager
+    conditions:
+    - lastTransitionTime: "2022-03-22T08:03:07Z"
+      message: no conflicts found
+      reason: NoConflicts
+      status: "True"
+      type: NamesAccepted
+    - lastTransitionTime: "2022-03-22T08:03:07Z"
+      message: the initial names have been accepted
+      reason: InitialNamesAccepted
+      status: "True"
+      type: Established
+    storedVersions:
+    - v1beta1
+- apiVersion: apiextensions.k8s.io/v1
+  kind: CustomResourceDefinition
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: longhorn
+      meta.helm.sh/release-namespace: longhorn-system
+    creationTimestamp: "2022-03-22T08:03:07Z"
+    generation: 1
+    labels:
+      app.kubernetes.io/instance: longhorn
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: longhorn
+      app.kubernetes.io/version: v1.2.2
+      helm.sh/chart: longhorn-1.2.2
+      longhorn-manager: Volume
+    name: volumes.longhorn.io
+    resourceVersion: "1929430"
+    uid: f6662d4f-6b6f-48a4-96e4-8653eb89bc0d
+  spec:
+    conversion:
+      strategy: None
+    group: longhorn.io
+    names:
+      kind: Volume
+      listKind: VolumeList
+      plural: volumes
+      shortNames:
+      - lhv
+      singular: volume
+    scope: Namespaced
+    versions:
+    - additionalPrinterColumns:
+      - description: The state of the volume
+        jsonPath: .status.state
+        name: State
+        type: string
+      - description: The robustness of the volume
+        jsonPath: .status.robustness
+        name: Robustness
+        type: string
+      - description: The scheduled condition of the volume
+        jsonPath: .status.conditions['scheduled']['status']
+        name: Scheduled
+        type: string
+      - description: The size of the volume
+        jsonPath: .spec.size
+        name: Size
+        type: string
+      - description: The node that the volume is currently attaching to
+        jsonPath: .status.currentNodeID
+        name: Node
+        type: string
+      - jsonPath: .metadata.creationTimestamp
+        name: Age
+        type: date
+      name: v1beta1
+      schema:
+        openAPIV3Schema:
+          properties:
+            spec:
+              x-kubernetes-preserve-unknown-fields: true
+            status:
+              x-kubernetes-preserve-unknown-fields: true
+          type: object
+      served: true
+      storage: true
+      subresources:
+        status: {}
+  status:
+    acceptedNames:
+      kind: Volume
+      listKind: VolumeList
+      plural: volumes
+      shortNames:
+      - lhv
+      singular: volume
+    conditions:
+    - lastTransitionTime: "2022-03-22T08:03:07Z"
+      message: no conflicts found
+      reason: NoConflicts
+      status: "True"
+      type: NamesAccepted
+    - lastTransitionTime: "2022-03-22T08:03:07Z"
+      message: the initial names have been accepted
+      reason: InitialNamesAccepted
+      status: "True"
+      type: Established
+    storedVersions:
+    - v1beta1
+kind: List
+metadata:
+  resourceVersion: ""
+  selfLink: ""
