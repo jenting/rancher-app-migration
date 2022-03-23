@@ -10,6 +10,7 @@ RELEASE_NAME=`kubectl get ds longhorn-manager -n ${RELEASE_NAMESPACE} -ojsonpath
 
 ### CRD
 
+kubectl get crd -l longhorn-manager -o name -n ${RELEASE_NAMESPACE} | xargs -I % kubectl annotate --overwrite -n ${RELEASE_NAMESPACE} % helm.sh/resource-policy=keep
 kubectl get crd -l longhorn-manager -o name -n ${RELEASE_NAMESPACE} | xargs -I % kubectl annotate --overwrite -n ${RELEASE_NAMESPACE} % meta.helm.sh/release-name=longhorn-crd
 kubectl get crd -l longhorn-manager -o name -n ${RELEASE_NAMESPACE} | xargs -I % kubectl annotate --overwrite -n ${RELEASE_NAMESPACE} % meta.helm.sh/release-namespace=${RELEASE_NAMESPACE}
 kubectl get crd -l longhorn-manager -o name -n ${RELEASE_NAMESPACE} | xargs -I % kubectl label --overwrite -n ${RELEASE_NAMESPACE} % app.kubernetes.io/managed-by=Helm
